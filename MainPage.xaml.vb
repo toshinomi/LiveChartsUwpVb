@@ -8,4 +8,39 @@ Imports LiveCharts.Uwp
 Public NotInheritable Class MainPage
     Inherits Page
 
+    Private m_nHistgram(255) As Integer
+    Private m_seriesCollection As SeriesCollection = New SeriesCollection()
+
+    Public Sub New()
+
+        ' この呼び出しはデザイナーで必要です。
+        InitializeComponent()
+
+        ' InitializeComponent() 呼び出しの後で初期化を追加します。
+
+    End Sub
+
+    Private Sub OnClickDrawGraph(sender As Object, e As RoutedEventArgs)
+        DrawHistgram()
+        Return
+    End Sub
+
+    Public Sub DrawHistgram()
+        Dim chartValue = New ChartValues(Of Integer)()
+        For nIdx As Integer = 0 To m_nHistgram.Length - 1
+            m_nHistgram(nIdx) = nIdx
+            chartValue.Add(m_nHistgram(nIdx))
+        Next nIdx
+
+        Dim SeriesCollection = New SeriesCollection()
+
+        Dim lineSeriesChart = New LineSeries With
+        {
+            .Values = chartValue
+        }
+        SeriesCollection.Add(lineSeriesChart)
+
+        m_seriesCollection = SeriesCollection
+        LiveChartsGraph.Series = m_seriesCollection
+    End Sub
 End Class

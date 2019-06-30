@@ -10,8 +10,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid Margin="20,10,20,10">
-            <lvc:CartesianChart x:Name="LiveChartsGraph" Height="970" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <AppBar Background="#33ff00ff" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+
+                    <AppBarButton x:Name="btnBack" Label="Show" Click="OnClickDrawGraph">
+                        <AppBarButton.Icon>
+                            <SymbolIcon Symbol="ShowResults" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+        <Grid Margin="20,100,20,10">
+            <lvc:CartesianChart x:Name="LiveChartsGraph" Series="{x:Bind Path=m_seriesCollection}" />
         </Grid>
     </Grid>
 </Page>
