@@ -34,7 +34,7 @@ Public NotInheritable Class MainPage
     End Sub
 
     ''' <summary>
-    ''' グラフ描画処理
+    ''' グラフ描画
     ''' </summary>
     Public Sub DrawHistgram()
         Dim chartValue = New ChartValues(Of Integer)()
