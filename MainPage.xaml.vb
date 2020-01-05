@@ -11,6 +11,9 @@ Public NotInheritable Class MainPage
     Private m_nHistgram(255) As Integer
     Private m_seriesCollection As SeriesCollection = New SeriesCollection()
 
+    ''' <summary>
+    ''' コンストラクタ
+    ''' </summary>
     Public Sub New()
 
         ' この呼び出しはデザイナーで必要です。
@@ -20,11 +23,19 @@ Public NotInheritable Class MainPage
 
     End Sub
 
+    ''' <summary>
+    ''' グラフ描画ボタンのクリックイベント
+    ''' </summary>
+    ''' <param name="sender">オブジェクト</param>
+    ''' <param name="e">ルーティングイベントのデータ</param>
     Private Sub OnClickDrawGraph(sender As Object, e As RoutedEventArgs)
         DrawHistgram()
         Return
     End Sub
 
+    ''' <summary>
+    ''' グラフ描画処理
+    ''' </summary>
     Public Sub DrawHistgram()
         Dim chartValue = New ChartValues(Of Integer)()
         For nIdx As Integer = 0 To m_nHistgram.Length - 1
